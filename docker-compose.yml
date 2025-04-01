@@ -3,11 +3,12 @@ services:
     image: ollama/ollama
     container_name: ollama
     restart: unless-stopped
-    ports:
-      - "11434:11434"
+    networks:
+      ollama:
     volumes:
       - /containers/ollama:/root/.ollama
 
 networks:
-  default:
+  ollama:
+    name: ollama
     enable_ipv6: true
